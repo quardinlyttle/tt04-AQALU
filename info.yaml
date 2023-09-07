@@ -5,10 +5,9 @@ project:
 
 # If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
 # Source files must be in ./src and you must list each source file separately
-#  source_files:        
-#    - counter.v
-#    - decoder.v
-#  top_module:  "tt_um_example"      # Put the name of your top module here, must start with "tt_um_". Make it unique by including your github username
+  source_files:        
+    - tt_um_quardinlyttle_top.v
+  top_module:  "tt_um_quardinlyttle_top"      # Put the name of your top module here, must start with "tt_um_". Make it unique by including your github username
 
 # How many tiles your design occupies? A single tile is about 167x108 uM.
   tiles: "1x1"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
@@ -21,10 +20,10 @@ yaml_version: 4
 #
 # Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
 documentation: 
-  author:       ""      # Your name
-  title:        ""      # Project title
-  language:     "Wokwi" # other examples include Verilog, Amaranth, VHDL, etc
-  description:  ""      # Short description of what your project does
+  author:       "Artin Ghanaatpisheh-Sanani and Quardin Lyttle "      # Your name
+  title:        "AQALU"      # Project title
+  language:     "Verilog" # other examples include Verilog, Amaranth, VHDL, etc
+  description:  "2 bit ALU with 4 Bit Opcode"      # Short description of what your project does
 
 # Longer description of how the project works. You can use standard markdown format.
   how_it_works: |
