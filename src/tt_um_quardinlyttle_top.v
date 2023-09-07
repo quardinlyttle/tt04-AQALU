@@ -27,8 +27,8 @@ wire [3:0] adderWire, subWire, mulWire;
 wire [1:0] compWire;
 wire [7:0] runningSumWire;
 
-TwoBitAdder adder({1'b0,A},{1'b0,B},adderWire,0);
-TwoBitAdder subtract({1'b0,A},{1'b1,~B},subWire,1);
+	TwoBitAdder adder({1'b0,A},{1'b0,B},adderWire,1'b0);
+	TwoBitAdder subtract({1'b0,A},{1'b1,~B},subWire,1'b1);
 multiplier mulitply(A,B,mulWire);
 comparator compare(A,B, compWire);
 runningSum sumboi({A,B},clock,runningSumWire, reset);
