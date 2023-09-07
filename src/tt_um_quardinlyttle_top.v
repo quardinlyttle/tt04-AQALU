@@ -43,7 +43,7 @@ begin
 		4'b0101: Output= {4'b0000,~(A|B)}; //NOR Opcode
 		4'b0110: Output= {4'b0000,~(A^B)}; //XNOR Opcode
 		4'b0111: Output= {4'b0000,adderWire}; //Addition Opcode
-		4'b1000: Output= {4'b0000,subWire}	//Subtract Opcode
+		4'b1000: Output= {4'b0000,subWire};	//Subtract Opcode
 		4'b1001: Output= {4'b0000,mulWire}; //Multiplication Opcode
 		4'b1010: Output= {6'b000000,compWire}; //Compare Opcode; 2'b10 when A is greater than B, 2'b01 when B is greater than A. 2'b11 when equal.
 		4'b1011: Output= {4'b0000,A,B} << 1; //Shift Left logic
