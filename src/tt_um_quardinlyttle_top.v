@@ -22,7 +22,9 @@ input [3:0] Opcode;
 input clock, reset;
 output reg [7:0] Output;
 
-wire [7:0] adderWire, subWire, mulWire, compWire, runningSumWire;
+wire [3:0] adderWire, subWire, mulWire;
+wire [1:0] compWire;
+wire [7:0] runningSumWire;
 
 TwoBitAdder adder({1'b0,A},{1'b0,B},adderWire,0);
 TwoBitAdder subtract({1'b0,A},{1'b1,~B},subWire,1);
@@ -33,21 +35,21 @@ runningSum sumboi({A,B},clock,runningSumWire, reset);
 always @(*)
 begin
 	case(Opcode)
-		4'b0000: Output= A&B; //And Opcode
+		4'b0000: Output= {4'b0000,A&B}; //And Opcode
 		4'b0001:	Output= A|B; //Or Opcode
-		4'b0010: Output= {~A,~B}; //Not Opcode- Treats it as 4 bit input
-		4'b0011:	Output= A^B; //XOR Opcode
-		4'b0100:	Output= ~(A&B);  //NAND Opcode
-		4'b0101:	Output= ~(A|B); //NOR Opcode
-		4'b0110: Output= ~(A^B); //XNOR Opcode
-		4'b0111: Output=adderWire; //Addition Opcode
-		4'b1000: Output= subWire;	//Subtract Opcode
-		4'b1001: Output= mulWire; //Multiplication Opcode
-		4'b1010: Output= compWire; //Compare Opcode; 2'b10 when A is greater than B, 2'b01 when B is greater than A. 2'b11 when equal.
-		4'b1011: Output= {A,B} << 1; //Shift Left logic
-		4'b1100:	Output= {A,B} >> 1; //Shift Right Logic
-		4'b1101: Output= {A,B} <<< 1; //Shift Left Arithmetic
-		4'b1110: Output= {A,B} >>> 1; //Shift Right Arithmetic
+		4'b0010: Output= {4'b0000,~A,~B}; //Not Opcode- Treats it as 4 bit input
+		4'b0011:	Output= {4'b0000,A^B}; //XOR Opcode
+		4'b0100:	Output= {4'b0000,~(A&B)};  //NAND Opcode
+		4'b0101:	Output= {4'b0000,~(A|B)}; //NOR Opcode
+		4'b0110: Output= {4'b0000,~(A^B)}; //XNOR Opcode
+		4'b0111: Output= {4'b0000,adderWire}; //Addition Opcode
+		4'b1000: Output= {4'b0000,subWire}	//Subtract Opcode
+		4'b1001: Output= {4'b0000,mulWire}; //Multiplication Opcode
+		4'b1010: Output= {6'b000000,compWire}; //Compare Opcode; 2'b10 when A is greater than B, 2'b01 when B is greater than A. 2'b11 when equal.
+		4'b1011: Output= {4'b0000,A,B} << 1; //Shift Left logic
+		4'b1100:	Output= {4'b0000,A,B} >> 1; //Shift Right Logic
+		4'b1101: Output= {4'b0000,A,B} <<< 1; //Shift Left Arithmetic
+		4'b1110: Output= {4'b0000,A,B} >>> 1; //Shift Right Arithmetic
 		4'b1111: Output= runningSumWire; //Running Sum Opcode- Adds the number on the input to the current output result.
 	endcase
 end
@@ -59,13 +61,13 @@ module TwoBitAdder(A,B, Sum,Cin); //Adder module created from fulladder
 
 input Cin;
 input [2:0] A,B;//A-0,1 B-2,3
-output [2:0] Sum;
+output [3:0] Sum;
 
 wire carry0, carry1;
 
 fulladder adder1(A[0],B[0],Cin,Sum[0],carry0);
 fulladder adder2(A[1], B[1],carry0,Sum[1],carry1);
-fulladder adder3(A[2], B[2],carry1,Sum[2],z);
+fulladder adder3(A[2], B[2],carry1,Sum[2],Sum[3]);
 
 
 endmodule
