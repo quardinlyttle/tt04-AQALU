@@ -27,24 +27,23 @@ documentation:
 
 # Longer description of how the project works. You can use standard markdown format.
   how_it_works: |
-      4 bit Op Code ALU. OpCodes are as follows:
+      4 bit Op Code ALU. OpCodes are as follows-
       | 0000 | AND           |
-|-----:|---------------|
-| 0001 | OR            |
-| 0010 | NOT           |
-| 0011 | XOR           |
-| 0100 | NAND          |
-| 0101 | NOR           |
-| 0110 | XNOR          |
-| 0111 | Add           |
-| 1000 | Sub           |
-| 1001 | Mul           |
-| 1010 | Compare       |
-| 1011 | Shift L Logic |
-| 1100 | Shift R Logic |
-| 1101 | Shift L Arith |
-| 1110 | Shift R Arith |
-| 1111 | Running Sum   |
+      | 0001 | OR            |
+      | 0010 | NOT           |
+      | 0011 | XOR           |
+      | 0100 | NAND          |
+      | 0101 | NOR           |
+      | 0110 | XNOR          |
+      | 0111 | Add           |
+      | 1000 | Sub           |
+      | 1001 | Mul           |
+      | 1010 | Compare       |
+      | 1011 | Shift L Logic |
+      | 1100 | Shift R Logic |
+      | 1101 | Shift L Arith |
+      | 1110 | Shift R Arith |
+      | 1111 | Running Sum   |
 
 
 # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
