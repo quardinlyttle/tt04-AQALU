@@ -11,7 +11,8 @@ module tt_um_quardinlyttle_top (
 
 AQALU alu(ui_in[7:6], ui_in[5:4], ui_in[3:0],uio_out[7:0],clk,rst_n); //interface AQALU with Tiny Tape Out.
 
-assign uio_oe = 8'b11111111; //assign bidrectional as outputs. 
+assign uio_oe = 8'b11111111; //assign bidrectional as outputs.
+assign uo_out =0;
 
 endmodule
 
@@ -35,13 +36,13 @@ runningSum sumboi({A,B},clock,runningSumWire, reset);
 always @(*)
 begin
 	case(Opcode)
-		4'b0000: Output= {4'b0000,A&B}; //And Opcode
-		4'b0001: Output={4'b0000, A|B}; //Or Opcode
+		4'b0000: Output= {6'b000000,A&B}; //And Opcode
+		4'b0001: Output= {6'b000000, A|B}; //Or Opcode
 		4'b0010: Output= {4'b0000,~A,~B}; //Not Opcode- Treats it as 4 bit input
-		4'b0011: Output= {4'b0000,A^B}; //XOR Opcode
-		4'b0100: Output= {4'b0000,~(A&B)};  //NAND Opcode
-		4'b0101: Output= {4'b0000,~(A|B)}; //NOR Opcode
-		4'b0110: Output= {4'b0000,~(A^B)}; //XNOR Opcode
+		4'b0011: Output= {6'b000000,A^B}; //XOR Opcode
+		4'b0100: Output= {6'b000000,~(A&B)};  //NAND Opcode
+		4'b0101: Output= {6'b000000,~(A|B)}; //NOR Opcode
+		4'b0110: Output= {6'b000000,~(A^B)}; //XNOR Opcode
 		4'b0111: Output= {4'b0000,adderWire}; //Addition Opcode
 		4'b1000: Output= {4'b0000,subWire};	//Subtract Opcode
 		4'b1001: Output= {4'b0000,mulWire}; //Multiplication Opcode
