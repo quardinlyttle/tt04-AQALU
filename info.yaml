@@ -27,7 +27,7 @@ documentation:
 
 # Longer description of how the project works. You can use standard markdown format.
   how_it_works: |
-      4 bit Op Code ALU. OpCodes are as follows:
+      4 bit Op Code ALU. OpCodes are as follows
       0000	AND
       0001	OR
       0010	NOT
