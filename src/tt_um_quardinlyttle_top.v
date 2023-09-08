@@ -152,7 +152,7 @@ always @(posedge clk, posedge rst)
 			counter <=0;
 			Result <=0;
 		end
-		else if (counter == 26'd10_000_000) //Tiny tape out has a 10MHz clock
+		else if (counter == 26'd50_000_000) //Tiny tape out has a 10MHz clock
 		begin	
 			counter <= 0;
 			Result <= Result+A;
