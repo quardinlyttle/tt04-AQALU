@@ -2,7 +2,7 @@
 # AQALU
 The AQALU is a 2bit ALU with a 4bit OPCode. It is simplistic project that Artin Ghanaatpisheh-Sanani and Quardin Lyttle came up with and executed given time constraints to submit for Tiny Tape Out 4.
 
-Test Video: https://youtu.be/BMo6pRIcZFQ
+Update: We have received the tapeout!! Test video: https://youtu.be/BMo6pRIcZFQ
 
 # What is Tiny Tapeout?
 
