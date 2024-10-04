@@ -2,6 +2,9 @@
 # AQALU
 The AQALU is a 2bit ALU with a 4bit OPCode. It is simplistic project that Artin Ghanaatpisheh-Sanani and Quardin Lyttle came up with and executed given time constraints to submit for Tiny Tape Out 4.
 
+3D GDS Viewer: https://gds-viewer.tinytapeout.com/?model=https://quardinlyttle.github.io/tt04-AQALU/tinytapeout.gds.gltf
+
+
 **Update**: We have received the tapeout!! Test video: https://youtu.be/BMo6pRIcZFQ
 
 # What is Tiny Tapeout?
